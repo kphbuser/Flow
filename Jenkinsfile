@@ -7,7 +7,7 @@ pipeline {
 	stages {
 		stage('git-code-checkout'){
 			steps {
-				git "https://github.com/kphbuser/MavenProject.git"
+				git "https://github.com/kphbuser/Flow.git"
 			}
 		}
 		stage('mavne-build'){
