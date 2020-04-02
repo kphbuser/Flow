@@ -17,7 +17,7 @@ pipeline {
 			}
 		stage('Artifact_upload'){
 				steps{
-					withCredentials([usernmeColonPassword(credentialsId: 'nexus-username-password', variable: 'USERNAME_PASSWORD')]) {
+					withCredentials([usernameColonPassword(credentialsId: 'nexus-username-password', variable: 'USERNAME_PASSWORD')]) {
 						sh 'curl -v --fail --user $USERNAME_PASSWORD --upload-file ./target/*.war http://13.232.1.88:8081/nexus/content/repositories/tomcat/'
 					}
 				}
