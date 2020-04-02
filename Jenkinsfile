@@ -15,5 +15,12 @@ pipeline {
 				sh 'mvn clean package -DskipTests'
 				}
 			}
+		stage('Artifact_upload'){
+				steps{
+					withCredentials([usernmeColonPassword(credentialsId: 'nexus-username-password', variable: 'USERNAME_PASSWORD')]) {
+						sh 'curl -v --fail --user $USERNAME_PASSWORD --upload-file ./target/*.war http://13.232.1.88:8081/nexus/content/repositories/tomcat
+					}
+				}
+			}
 		}
 }
